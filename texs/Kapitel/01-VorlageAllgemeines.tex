@@ -8,18 +8,36 @@ Dies ist keine offizielle Vorlage der THB. Die Nutzung dieser Vorlage geschieht 
 Möchte man diese Vorlage für die eigene Arbeit verwenden gibt es zwei Möglichkeiten.
 
 \subsection{Download als zip-Datei}
-Die einfachste Methode ist, das GitHub Repository als zip-Datei herunterzuladen. Dies geschieht über den \textit{Clone or Download Button} in der rechten oberen Ecke. Nach Entpacken können die Dateien mit einem beliebigen Texteditor bearbeitet werden. Ich empfehle allerdings die Benutzung eines speziellen Latex Editors, da dieser die Bearbeitung erleichtert (siehe \vref{sec:Editor}). Alternativ kann der Online Editor \enquote{Overleaf} \cite{OverleafWebsite} benutzt werden, bei dem die zip-Datei einfach hochgeladen werden kann.
+Die einfachste Methode ist, das GitHub Repository als zip-Datei herunterzuladen. Dies geschieht über den \textit{Clone or Download Button} in der rechten oberen Ecke. Nach Entpacken können die Dateien weiter bearbeitet werden.
 
 \subsection{Fork auf GitHub}
-Eine Alternative zum Download ist der \enquote{Fork} auf GitHub (siehe: \url{https://docs.github.com/en/get-started/quickstart/fork-a-repo}). Dies hat primär zwei Vorteile:
+Eine Alternative zum Download ist der \href{https://docs.github.com/en/get-started/quickstart/fork-a-repo}{Fork} auf GitHub. Dies hat primär zwei Vorteile:
 \begin{itemize}
-	\item Du hast automatisch ein Backup deiner Arbeit auf GitHub
-	\item Andere Personen können deine Arbeit einsehen, diese verbessern, weiterverwenden oder daraus lernen. Bedenke auch, dass du von dieser Vorlage profitierst und Zeit sparst.
+	\item Man hat automatisch ein Backup der Arbeit auf GitHub
+	\item Andere Personen können die Arbeit einsehen, diese verbessern, weiterverwenden oder daraus lernen
 \end{itemize}
-Falls du deine Arbeit nicht öffentlich machen willst oder darfst, kannst du dein Projekt auch als \textit{privat} einstellen.
+Falls die Arbeit nicht öffentlich sein soll oder darf, kann das Projekt auch als \textit{privat} eingestellt werden.
+
+\section{Benötigte Programme}
+Bei der Bearbeitung der Dateien hat man grundsätzlich die Wahl, ob man diese auf dem eigene PC kompilieren möchte oder mithilfe eines Online-Editors arbeiten möchte.
+
+\subsection{Bearbeitung auf dem eigenen PC}
+Damit man \LaTeX\ Dokumente kompilieren kann, muss eine \TeX-Distribution auf dem Betriebssystem installiert werden. Es stehen je nach Betriebssystem mehrere Optionen zur Verfügung. Für welche man sich entscheidet ist allerdings unerheblich, die erzeugte PDF-Datei ist identisch. 
+\begin{itemize}
+	\item \href{https://miktex.org/}{MiK\TeX} (Windows, Linux und macOS)
+	\item \href{https://www.tug.org/texlive/}{\TeX Live} (Windows, Linux und macOS)
+	\item \href{https://www.tug.org/mactex/}{Mac\TeX} (macOS)
+\end{itemize}
+Grundsätzlich reicht ein Texteditor zum Bearbeiten der Dateien aus, allerdings erleichtert  ein spezieller \LaTeX-Editor einige Arbeitsschritte. Diese Vorlage ist mit dem Programm \href{https://www.texstudio.org/}{\TeX Studio} erstellt, welches sehr zu empfehlen ist.
+
+\subsection{Benutzen eines Online-Editors}
+Möchte man keine Programme installieren, kann auch ein Online-Editor, wie zum Beispiel \href{https://de.overleaf.com/}{Overleaf}, benutzt werden. Dafür kann man die zip-Datei hochladen oder auch ein \textit{GitHub Repository} einbinden.
+
+\section{Korrekte Einstellungen zum Kompilieren}
+Eventuell müssen dem \LaTeX-Editor die Pfade zur \TeX-Distribution angegeben werden, \TeX Studio ermittelt diese allerdings automatisch. Wichtig ist, dass als Bibliographieprogramm \textit{biber} ausgewählt wird. Als Compiler wird Lua\LaTeX\ empfohlen, da dieser eine bessere Unterstützung von Schriftarten als pdf\LaTeX\ ermöglicht. Die Vorlage kann allerdings mit beiden kompiliert werden, die Ausgabe ist sehr ähnlich.
 
 \section{Dateistruktur}
-Ein Vorteil bei der Benutzung von \LaTeX ist, dass der Code bei langen Projekten in mehrere Dateien aufgeteilt werden kann. Deswegen besteht die Vorlage auch aus mehreren Ordnern und Datein, dessen Bedeutungen in \vref{fig:Dateistruktur} beschrieben sind.
+Ein Vorteil bei der Benutzung von \LaTeX\ ist, dass der Code bei langen Projekten in mehrere Dateien aufgeteilt werden kann. Deswegen besteht die Vorlage auch aus mehreren Ordnern und Dateien, dessen Bedeutungen in \vref{fig:Dateistruktur} beschrieben sind.
 
 \begin{figure}[h]
 	\dirtree{%
@@ -41,15 +59,45 @@ Ein Vorteil bei der Benutzung von \LaTeX ist, dass der Code bei langen Projekten
 	\label{fig:Dateistruktur}
 \end{figure}
 
-Die Dateistruktur ist natürlich nicht zwingend und kann gerne nach Eigenbedarf angepasst werden. Diese Struktur ist für lange Dokumente ($>30$ Seiten) wie Bachelor- oder Masterarbeiten geeignet. Für kürzere Dokumente wie Laborberichte ist im Ordner \directory{Beispiele/KurzeArbeit} eine kompaktere Struktur vorhanden.\todo{Beispiel erstellen}
+Die Dateistruktur ist natürlich nicht zwingend und kann gerne nach Eigenbedarf angepasst werden. Diese Struktur ist für lange Dokumente ($>30$ Seiten) wie Bachelor- oder Masterarbeiten geeignet.
 
 \section{Personalisierung der Vorlage}
-Als Erstes sollte die Hauptdatei \directory{THBVorlageMain.tex} in einen sinnvollen Namen für das Projekt umbenannt werden. Danach kann die Datei \directory{texs/Metadaten.tex} angepasst werden. Ersetze einfach die Musterdaten durch deine eigenen Daten. Die Werte werden vor allem für die Titelseite, aber auch für PDF-Metadaten verwendet. Bei Bedarf können natürlich auch weitere Befehle definiert werden.
+Als Erstes sollte die Hauptdatei \directory{THBVorlageMain.tex} für das Projekt umbenannt werden. Danach kann die Datei \directory{texs/Metadaten.tex} angepasst werden, indem die Musterwert durch richtige Daten ersetzt werden. Die Werte werden vor allem für die Titelseite, aber auch für PDF-Metadaten verwendet. Bei Bedarf können natürlich auch weitere Befehle definiert werden.
 
 \section{Zitation und Literaturverzeichnis}
-Für das Zitieren und das Quellenverzeichnis wird das Paket \textit{biblatex} (\url{https://ctan.org/pkg/biblatex?lang=de}) verwendet. Dieses unterstützt sehr viele verschiedene Zitationsstile, am besten sprecht ihr das gewünschte Format mit eurem Dozenten ab. Auch das Layout des Literaturverzeichnis ist konfigurierbar. Die Einstellungen könnt ihr in der Datei \directory{texs/config.tex} in dem Abschnitt \enquote{Quellenverzeichnis konfigurieren} anpassen. Die Ausgabe des Literaturverzeichnis erfolgt mit dem Befehl \verb|\printbibliography| in der Hauptdatei \directory{THBVorlageMain.tex}.
+Für die Zitation und das Literaturverzeichnis wird das Paket \href{https://ctan.org/pkg/biblatex?lang=de}{\textit{biblatex}} mit dem backend \textit{biber} verwendet.
+
+\subsection{Erstellen von Quellen}
+Bei \LaTeX\ müssen die Quellen in einer \verb|.bib|-Datei vorliegen., wie zum Beispiel die Datei \directory{bibs/Literatur.bib}. In dieser können die einzelnen Quellen definiert werden. Eine Übersicht über alle Quellentypen bietet das \href{http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf}{\textit{Biblatex Cheat Sheet}}.
+
+Da das Schreiben der \verb|.bib|-Datei mühselig ist, gibt es spezielle Programme zur Quellenverwaltung. Ein kostenloses Programm ist \href{https://www.jabref.org/}{Jabref}, über die Hochschule kann allerdings auch das umfangreichere Programm \href{https://www.citavi.com/de}{Citavi} benutzt werden, welches einen \verb|.bib| Export anbietet.
+
+\subsection{Anpassen des Zitationsstils}
+\textit{biblatex} ist hochgradig anpassbar, am besten das gewünschte Layout mit dem Dozenten absprechen. Die Einstellungen können in der Datei \directory{texs/config.tex} in dem Abschnitt \enquote{Quellenverzeichnis konfigurieren} angepasst werden. Die Hauptanpassung erfolgt mit \verb|style=<Option>|. Der Standard ist \verb|numeric| (Zahlen in eckigen Klammern, z. B. [1, S. 15]). Weitere häufig verwendete Stile sind \verb|alphabetic| (Autorkürzel und Jahr, z. B. [VM19, S. 15]) oder \verb|authoryear| (Autorname und Jahr, z. B. (Vollmer und Möllmann 2019, S. 15)).
+
+Möchte man für die Zitate und das Literaturverzeichnis einen unterschiedlichen Stil wählen, können die Werte \verb|citestyle| und \verb|bibstyle| verwendet werden. Für weitere Konfigurationen sei auf die Dokumentation des \textit{biblatex} Pakets verwiesen.
+
+Die Ausgabe des Literaturverzeichnis erfolgt mit dem Befehl \verb|\printbibliography| in der Hauptdatei \directory{THBVorlageMain.tex}.
+ 
+\subsection{Beispiele für Zitate}
+Der Standardbefehl für Zitate in \LaTeX\ ist \verb|\cite{bibid}|. Es existieren einige Varianten des Zitierbefehls. In \vref{tab:ZitatBeispiele} sind einige Beispiele angegeben, die Ausgabe hängt natürlich vom ausgewählten Zitierstil ab.
+
+\begin{table}[h]
+\centering
+\caption{Einige Beispiele für Zitate}
+\label{tab:ZitatBeispiele}
+\begin{tblr}{verb}
+	\toprule
+	\SetRow{font=\bfseries} Befehl & Ausgabe \\ \midrule
+	\verb|\cite{VollmerMoellmann2019}| & \cite{VollmerMoellmann2019} \\
+	\verb|\cite[15]{VollmerMoellmann2019}| & \cite[15]{VollmerMoellmann2019} \\
+	\verb|\cite[vgl.][15]{VollmerMoellmann2019}| & \cite[vgl.][15]{VollmerMoellmann2019} \\
+	\bottomrule
+\end{tblr}
+\end{table}
+
+Das Paket \href{https://ctan.org/pkg/biblatex?lang=de}{\textit{biblatex}} stellt weitere Zitierbefehle zur Verfügung, deren Bedeutung in der Dokumentation nachgelesen werden kann.
+
 
 \section{Abkürzungsverzeichnis, Symbolverzeichnis und Glossar}
-Diese Vorlage enthält auch ein Abkürzungs- und Symbolverzeichnis, sowie ein Glossar zur Erklärung von Fachbegriffen. Alle diese Verzeichnisse werden mit dem Paket \textit{glossaries} (\url{https://ctan.org/pkg/glossaries?lang=de}) erstellt. Die Konfiguration der Verzeichnisse und die Definition neuer Einträge ist in der Datei \directory{texs/ExtraVerzeichnisse.tex} anpassbar. In der Hauptdatei werden die Verzeichnisse mit \verb|\printglossary[<Optionen>]| ausgegeben.
-
-\section{Editor zum Bearbeiten der Dateien} \label{sec:Editor}
+Diese Vorlage enthält auch ein Abkürzungs- und Symbolverzeichnis, sowie ein Glossar zur Erklärung von Fachbegriffen. Alle diese Verzeichnisse werden mit dem Paket \href{https://ctan.org/pkg/glossaries?lang=de}{\textit{glossaries}} erstellt. Die Konfiguration der Verzeichnisse und die Definition neuer Einträge ist in der Datei \directory{texs/ExtraVerzeichnisse.tex} anpassbar. In der Hauptdatei werden die Verzeichnisse mit \verb|\printglossary[<Optionen>]| ausgegeben.
