@@ -35,7 +35,7 @@
 % Achtung, Schriften müssen auf System installiert sein!
 \setmainfont{Times New Roman} % Hauptschrift
 \setsansfont{Segoe UI}[Scale=MatchLowercase] % Serifenlose Schrift (Nachfolger Arial)
-\setmonofont{Courier New}[Scale=MatchLowercase] % Schreibmaschinenschrift
+\setmonofont{Courier New}[Scale=MatchLowercase, FakeStretch=0.85] % Schreibmaschinenschrift
 \else
 % LuLaTex wird nicht verwendet
 \usepackage[T1]{fontenc}
@@ -74,13 +74,13 @@
 \usepackage{float} % Positionierung von Abb. und Tab. mit [H] erzwingen
 \usepackage{booktabs} % schönere Tabellen
 \usepackage{tabularray} % Tabellen leichter gestalten
-\UseTblrLibrary{booktabs, siunitx} % für Kompatibilität
-\usepackage[ngerman, colorinlistoftodos]{todonotes} % TODO-Liste
+\UseTblrLibrary{booktabs, siunitx}
 \usepackage{subcaption} % Für 1a, 1b, 1c Abbildungen
 
 %-------------------------------------------------
 % Zusätzliche Pakete, gerne erweitern
 %-------------------------------------------------
+\usepackage[colorinlistoftodos]{todonotes} % TODO-Liste
 \usepackage{dirtree} % Visualieren von Ordnerstrukturen
 \usepackage{menukeys}
 
@@ -90,7 +90,7 @@
 \usepackage{csquotes, xpatch} % Empfohlen für die Verwendung von BibLaTex
 \usepackage[
 	backend=biber, % Muss eingestellt werden!
-	% Zitationsstil alphabetic
+	% Stil alphabetic
 	% andere Möglichkeiten: numeric, authoryear etc.
 	style=alphabetic,
 	maxcitenames=3, % maximal 3 Autoren, danach et. al.
