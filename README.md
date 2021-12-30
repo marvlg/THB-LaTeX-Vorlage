@@ -1,4 +1,4 @@
-# Latex Vorlage für die Technische Hochschule Brandenburg
+# LaTex-Vorlage für die Technische Hochschule Brandenburg
 
 Eine Latex-Vorlage für den persönlichen Gebrauch für Haus-, Seminar-, Bachelor- und Masterarbeiten an der [Technischen Hochschule Brandenburg](https://www.th-brandenburg.de/startseite/).
 
