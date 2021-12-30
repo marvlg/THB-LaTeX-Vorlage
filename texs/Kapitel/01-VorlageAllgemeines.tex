@@ -1,0 +1,55 @@
+\chapter{Allgemeines über diese Vorlage}
+\begin{Large}
+\textbf{Achtung}\quad
+Dies ist keine offizielle Vorlage der THB. Die Nutzung dieser Vorlage geschieht auf eigene Gefahr und es kann nicht gewährleistet werden, dass sie den jeweiligen Vorlagen entspricht.
+\end{Large}
+
+\section{Nutzung für die eigene Arbeit}
+Möchte man diese Vorlage für die eigene Arbeit verwenden gibt es zwei Möglichkeiten.
+
+\subsection{Download als zip-Datei}
+Die einfachste Methode ist, das GitHub Repository als zip-Datei herunterzuladen. Dies geschieht über den \textit{Clone or Download Button} in der rechten oberen Ecke. Nach Entpacken können die Dateien mit einem beliebigen Texteditor bearbeitet werden. Ich empfehle allerdings die Benutzung eines speziellen Latex Editors, da dieser die Bearbeitung erleichtert (siehe \vref{sec:Editor}). Alternativ kann der Online Editor \enquote{Overleaf} \cite{OverleafWebsite} benutzt werden, bei dem die zip-Datei einfach hochgeladen werden kann.
+
+\subsection{Fork auf GitHub}
+Eine Alternative zum Download ist der \enquote{Fork} auf GitHub (siehe: \url{https://docs.github.com/en/get-started/quickstart/fork-a-repo}). Dies hat primär zwei Vorteile:
+\begin{itemize}
+	\item Du hast automatisch ein Backup deiner Arbeit auf GitHub
+	\item Andere Personen können deine Arbeit einsehen, diese verbessern, weiterverwenden oder daraus lernen. Bedenke auch, dass du von dieser Vorlage profitierst und Zeit sparst.
+\end{itemize}
+Falls du deine Arbeit nicht öffentlich machen willst oder darfst, kannst du dein Projekt auch als \textit{privat} einstellen.
+
+\section{Dateistruktur}
+Ein Vorteil bei der Benutzung von \LaTeX ist, dass der Code bei langen Projekten in mehrere Dateien aufgeteilt werden kann. Deswegen besteht die Vorlage auch aus mehreren Ordnern und Datein, dessen Bedeutungen in \vref{fig:Dateistruktur} beschrieben sind.
+
+\begin{figure}[h]
+	\dirtree{%
+		.1 /.
+		.2 bibs\DTcomment{Literaturdateien}.
+		.2 codes\DTcomment{Quellcodedateien}.
+		.2 figs\DTcomment{Abbildungen}.
+		.2 texs\DTcomment{tex-Dateien}.
+		.3 Anhang\DTcomment{tex-Dateien des Anhangs}.
+		.3 Kapitel\DTcomment{tex-Dateien der Kapitel}.
+		.3 config\DTcomment{Latex Präambel}.
+		.3 Ehrenwort\DTcomment{Ehrenwörtliche Erklärung}.
+		.3 ExtraVerzeichnisse\DTcomment{Abkürzungen, Symbole etc.}.
+		.3 Metadaten\DTcomment{Metadaten des Dokuments}.
+		.3 Titelseite\DTcomment{Layout der Titelseite}.
+		.2 THBVorlageMain\DTcomment{Hauptdatei}.
+	}
+	\caption{Dateistruktur der Vorlage}
+	\label{fig:Dateistruktur}
+\end{figure}
+
+Die Dateistruktur ist natürlich nicht zwingend und kann gerne nach Eigenbedarf angepasst werden. Diese Struktur ist für lange Dokumente ($>30$ Seiten) wie Bachelor- oder Masterarbeiten geeignet. Für kürzere Dokumente wie Laborberichte ist im Ordner \directory{Beispiele/KurzeArbeit} eine kompaktere Struktur vorhanden.\todo{Beispiel erstellen}
+
+\section{Personalisierung der Vorlage}
+Als Erstes sollte die Hauptdatei \directory{THBVorlageMain.tex} in einen sinnvollen Namen für das Projekt umbenannt werden. Danach kann die Datei \directory{texs/Metadaten.tex} angepasst werden. Ersetze einfach die Musterdaten durch deine eigenen Daten. Die Werte werden vor allem für die Titelseite, aber auch für PDF-Metadaten verwendet. Bei Bedarf können natürlich auch weitere Befehle definiert werden.
+
+\section{Zitation und Literaturverzeichnis}
+Für das Zitieren und das Quellenverzeichnis wird das Paket \textit{biblatex} (\url{https://ctan.org/pkg/biblatex?lang=de}) verwendet. Dieses unterstützt sehr viele verschiedene Zitationsstile, am besten sprecht ihr das gewünschte Format mit eurem Dozenten ab. Auch das Layout des Literaturverzeichnis ist konfigurierbar. Die Einstellungen könnt ihr in der Datei \directory{texs/config.tex} in dem Abschnitt \enquote{Quellenverzeichnis konfigurieren} anpassen. Die Ausgabe des Literaturverzeichnis erfolgt mit dem Befehl \verb|\printbibliography| in der Hauptdatei \directory{THBVorlageMain.tex}.
+
+\section{Abkürzungsverzeichnis, Symbolverzeichnis und Glossar}
+Diese Vorlage enthält auch ein Abkürzungs- und Symbolverzeichnis, sowie ein Glossar zur Erklärung von Fachbegriffen. Alle diese Verzeichnisse werden mit dem Paket \textit{glossaries} (\url{https://ctan.org/pkg/glossaries?lang=de}) erstellt. Die Konfiguration der Verzeichnisse und die Definition neuer Einträge ist in der Datei \directory{texs/ExtraVerzeichnisse.tex} anpassbar. In der Hauptdatei werden die Verzeichnisse mit \verb|\printglossary[<Optionen>]| ausgegeben.
+
+\section{Editor zum Bearbeiten der Dateien} \label{sec:Editor}

@@ -1,0 +1,182 @@
+\documentclass[
+	12pt, % Standard Schriftgröße
+	a4paper, % Papierformat
+	ngerman, % wird an andere Pakete weitergegeben
+	BCOR=10mm, % zusätzlicher Rand auf Innenseite
+	DIV=12, % Anzahl Unterteilungen
+	parskip=half,  % Halbe Zeile Absatzabstand
+	oneside, % einseitiges layout
+	%twoside, % zweiseitiges layout
+	headsepline, % Linie unter Kopfzeile 
+	%footsepline, % Linie über Fußzeile
+	headinclude=false, % Kopfzeile nicht in Satzspiegel
+	footinclude=false, % Fußzeile nicht in Satzspiegel
+	numbers=noenddot, % kein Punkt nach Kapitelnummern
+	listof=totoc, % Verzeichnisse im Inhaltverzeichnis
+	bibliography=totoc, % Literatur im Inhaltsverzeichnis
+%	chapterprefix, % Kapitel ausschreiben
+%	appendixprefix, % Anhang ausschreiben
+	captions=tableheading, % Tabelle mit Überschrift statt Unterschrift
+	usegeometry, % Satzspiegel Berechnung an geometry Paket übertragen
+] {scrreprt} % auch möglich, scrartcl oder scrbook
+
+%--------------------------------------
+% Metadaten laden, unbedingt anpassen!
+%--------------------------------------
+\input{texs/Metadaten}
+
+%-------------------------------------
+% Schriftarten
+%-------------------------------------
+\usepackage{ifluatex} % Um Fehler zu vermeiden, wenn nicht LuaLaTex verwendet wird
+\ifluatex
+% LuLaTex wird verwendet
+\usepackage{unicode-math}
+% Achtung, Schriften müssen auf System installiert sein!
+\setmainfont{Times New Roman} % Hauptschrift
+\setsansfont{Segoe UI}[Scale=MatchLowercase] % Serifenlose Schrift (Nachfolger Arial)
+\setmonofont{Courier New}[Scale=MatchLowercase] % Schreibmaschinenschrift
+\else
+% LuLaTex wird nicht verwendet
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[scaled=0.9]{helvet}
+\usepackage{courier}
+\usepackage{amssymb} % Mathe Symbole
+\fi
+
+%-------------------------------------
+% Spracheinstellungen
+%-------------------------------------
+\usepackage[ngerman]{babel} % neue deutsche Sprache
+\babelprovide[hyphenrules=ngerman-x-latest]{ngerman} % neuste Trennregeln
+
+%-------------------------------------
+% Satzspiegel (Seitenlayout)
+%-------------------------------------
+% Der Satzspiegel wird bei Komascript Klassen basierend auf den Angaben DIV und BCOR automatisch berechnet. Möchte man die Ränder selber angeben, kann dies mit dem Paket geometry geschehen.
+%\usepackage[left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{geometry}
+% Falls 1,5facher Zeilenabstand gefordert ist, die nächsten zwei Zeilen auskommentieren
+%\usepackage{setspace}
+%\onehalfspacing
+
+% --------------------------------------
+% Standdard Pakete
+% --------------------------------------
+\usepackage{blindtext} % Blindtext erzeugen
+\usepackage{microtype} % bessere Typographie
+\usepackage{amsmath} % Mathematik
+\usepackage{siunitx} % Einheiten
+\usepackage{graphicx} % Bilder einbinden
+\graphicspath{{figs/}} % Ordner für Bilddateien
+\usepackage{wrapfig} % Bilder im Text
+\usepackage{float} % Positionierung von Abb. und Tab. mit [H] erzwingen
+\usepackage{booktabs} % schönere Tabellen
+\usepackage{tabularray} % Tabellen leichter gestalten
+\UseTblrLibrary{booktabs, siunitx} % für Kompatibilität
+\usepackage[ngerman, colorinlistoftodos]{todonotes} % TODO-Liste
+\usepackage{subcaption} % Für 1a, 1b, 1c Abbildungen
+
+%-------------------------------------------------
+% Zusätzliche Pakete, gerne erweitern
+%-------------------------------------------------
+\usepackage{dirtree} % Visualieren von Ordnerstrukturen
+\usepackage{menukeys}
+
+%-------------------------------------------------
+% Quellenverzeichnis konfigurieren
+%-------------------------------------------------
+\usepackage{csquotes, xpatch} % Empfohlen für die Verwendung von BibLaTex
+\usepackage[
+	backend=biber, % Muss eingestellt werden!
+	% Zitationsstil alphabetic
+	% andere Möglichkeiten: numeric, authoryear etc.
+	style=alphabetic,
+	maxcitenames=3, % maximal 3 Autoren, danach et. al.
+	doi=false, % keine DOI in Literaturverzeichnis
+	isbn=false, % keine ISBN in Literaturverzeichnis
+]{biblatex}
+\addbibresource{bibs/Literatur.bib}
+% Hier weitere .bib Datein hinzufügen
+
+% ----------------------------------------
+% Layout von Kopf- und Fußzeile
+% ---------------------------------------
+\usepackage[automark]{scrlayer-scrpage}
+% Aktuelles Kapitel mittig in Kopfzeile
+% Seitenzahl mittig in Fußzeile
+
+% Alternatives Layout
+% Links den Kolumnentitel und rechts (außen) ein Logo
+% Kolumnentitel zeigt aktuelle section ab der ersten section eines Kapitels
+%\usepackage[autooneside=false]{scrlayer-scrpage}
+%\automark[section]{chapter}
+%\clearpairofpagestyles
+%\ihead{\headmark} % innen Kolumentitel
+%\ohead{\smash{\includegraphics[height=10mm]{THBLogo.pdf}}} 
+%\cfoot*{\pagemark} % unten mittig Seitenzahl
+
+% ---------------------------------------
+% Einstellungen für Quellcode Datein
+% ---------------------------------------
+\usepackage{scrhack} % für veraltetes listings package
+\usepackage{listings} % Quellcode einbinden
+\renewcommand\lstlistlistingname{Quellcodeverzeichnis}
+
+%-----------------------------------
+% Umlaute in Code korrekt darstellen
+% siehe auch: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+%-----------------------------------
+\lstset{literate=
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1 {„}{{\glqq{}}}1
+}
+
+% ----------------------------------------------------
+% Einstellung für Links, Lesezeichen und PDF-Metadaten
+% ----------------------------------------------------
+% \vref für automatisches Ergänzen von "auf der nächsten (auf dieser) Seite" bei Referenzen.
+\usepackage{varioref}
+% Farbige links, sowie PDF-Lesezeichen
+% Empfohlen für die PDF Version
+% Für Print Version entfernen
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue,
+	bookmarks=true,
+	bookmarksnumbered=true,
+	bookmarksopen=true,
+	bookmarksopenlevel=0,
+	pdfstartpage=1,
+]{hyperref}
+% Metadaten in PDF eintragen
+\hypersetup{
+	pdfinfo={
+		Title={\myTitel},
+		Author={\myAutor},
+	}
+}
+% Ermöglicht "clevere" Referenzen, automatisches Ergänzen des Verweistyps zum Beispiel Abbildung
+\usepackage{cleveref}
+
+% ----------------------------------------------------
+% Eigene Einstellungen und Befehle
+% ----------------------------------------------------
+% Hier können weitere Einstellungen vorgenommen werden
+% und neue Befehle/Umgebungen definiert werden
+
+\setcapindent{1em} % Einzug für mehrzeilige Beschriftungen
+\setlength{\marginparwidth}{2cm} % für todo package
+% Befehl für Quellen bei Abbildungen oder Tabellen
+\newcommand{\Quelle}[2]{\parbox{#1}{{\small Quelle: #2}}}

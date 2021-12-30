@@ -1,0 +1,67 @@
+% ----------------------------------------------------
+% Symbolverzeichnis, Abkürzungsverzeichnis und Glossar
+% Es gibt zahlreiche packages in Latex, welche einen bei der Unterstützung von zusätzlichen Verzeichnissen unterstützen. Hier werden alle Verzeichnisse mit dem package 'glossaries' erstellt, da dieses sehr viele Funktionen bietet. Weitere Optionen sind 'nomencl', 'listofsymbols', 'acronym' etc.
+% ----------------------------------------------------
+\usepackage[
+	acronyms, % Abkürzungsverzeichnis erstellen
+	toc, % Verzeichnisse im Inhaltsverzeichnis eintragen
+	nonumberlist, % keine Seitenzahlen anzeigen
+	nogroupskip, % kein extra Abstand zwischen Gruppen
+]{glossaries}
+\usepackage{glossary-longbooktabs}
+
+% Ein eigenes Symbolverzeichnis erstellen
+\newglossary[slg]{symbols}{syi}{syg}{Symbolverzeichnis}
+
+%Den Punkt am Ende jeder Beschreibung deaktivieren
+\renewcommand*{\glspostdescription}{}
+
+% Glossar Befehle anschalten
+\makeglossaries
+
+% Definition der Symbole
+\newglossaryentry{symb:c}{
+	name={\ensuremath{c}},
+	description={Lichtgeschwindigkeit},
+	sort=c,
+	type=symbols,
+}
+\newglossaryentry{symb:x}{
+	name={\ensuremath{x}},
+	description={Ort},
+	sort=x,
+	type=symbols,
+}
+\newglossaryentry{symb:aij}{
+	name={\ensuremath{a_{ij}}},
+	description={Matrixelement in Zeile $i$ und Spalte $j$},
+	sort=a,
+	type=symbols,
+}
+\newglossaryentry{symb:pi}{
+	name=\ensuremath{\pi},
+	description={Die Kreiszahl},
+	sort=pi,
+	type=symbols,
+}
+
+
+% Defintion der Abkürzungen
+\newacronym{acro:thb}{THB}{Technische Hochschule Brandenburg}
+\newacronym{acro:pdf}{PDF}{Portable Document Format}
+\newacronym{acro:wysiwyg}{WYSIWYG}{What You See Is What You Get}
+\newacronym{acro:wysiwyaf}{WYSIWYAF}{What You See Is What You Asked For}
+\newacronym{acro:ide}{IDE}{Integrated Development Environment}
+
+% Definition der Glossareinträge
+\newglossaryentry{glossar}{
+	name={Glossar},
+	description={In einem Glossar werden Fachbegriffe und Fremdwörter mit ihren Erklärungen gesammelt.}
+}
+\newglossaryentry{glossaries}{
+	name={Glossaries},
+	description={Glossaries ist ein Paket was einen im Rahmen von LaTeX bei der Erstellung eines Glossar unterstützt.}
+}
+
+% Alle Einträge in die Verzeichnisse eintragen
+\glsaddall

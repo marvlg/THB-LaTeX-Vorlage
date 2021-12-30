@@ -1,0 +1,46 @@
+% Dokument konfigurieren
+\input{texs/config}
+% Symbolverzeichnis, Abkürzungsverzeichnis, Glossar
+\input{texs/ExtraVerzeichnisse}
+
+% Start des Inhalts
+\begin{document}
+	
+% Deckblatt
+\input{texs/Titelseite}
+
+\pagenumbering{Roman} % römische Seitenzahlen
+
+% Verzeichnisse, ungewünschte einfach löschen
+\tableofcontents % Inhaltsverzeichnis
+\listoffigures % Abbildungsverzeichnis
+\listoftables % Tabellenverzeichnis
+% Abkürzungsverzeichnis
+\printglossary[type=acronym, title=Abkürzungsverzeichnis, style=long]
+% Symbolverzeichnis
+\printglossary[type=symbols, style=long]
+% Glossar
+\printglossary[type=main]
+\listoftodos[TODO-Liste] % Todo Liste
+
+\newpage
+\pagenumbering{arabic} % arabische Seitenzahlen
+
+% Kapitel
+\input{texs/Kapitel/01-VorlageAllgemeines}
+\input{texs/Kapitel/02-LatexBeispiele}
+\todo{Weitere Kapitel ergänzen}
+
+
+
+% Literaturverzeichnis
+\printbibliography[title=Literaturverzeichnis]
+
+% Anhänge
+\appendix
+\input{texs/Anhaenge/Dateiabgaben}
+
+% Ehrenwörtliche Erklärung
+\input{texs/Ehrenwort}
+
+\end{document}
