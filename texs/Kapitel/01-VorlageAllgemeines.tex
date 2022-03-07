@@ -39,7 +39,7 @@ Eventuell müssen dem \LaTeX-Editor die Pfade zur \TeX-Distribution angegeben we
 \section{Dateistruktur}
 Ein Vorteil bei der Benutzung von \LaTeX\ ist, dass der Code bei langen Projekten in mehrere Dateien aufgeteilt werden kann. Deswegen besteht die Vorlage auch aus mehreren Ordnern und Dateien, dessen Bedeutungen in \vref{fig:Dateistruktur} beschrieben sind.
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\dirtree{%
 		.1 /.
 		.2 bibs\DTcomment{Literaturdateien}.
@@ -50,7 +50,6 @@ Ein Vorteil bei der Benutzung von \LaTeX\ ist, dass der Code bei langen Projekte
 		.3 Kapitel\DTcomment{tex-Dateien der Kapitel}.
 		.3 config\DTcomment{Latex Präambel}.
 		.3 Ehrenwort\DTcomment{Ehrenwörtliche Erklärung}.
-		.3 ExtraVerzeichnisse\DTcomment{Abkürzungen, Symbole etc.}.
 		.3 Metadaten\DTcomment{Metadaten des Dokuments}.
 		.3 Titelseite\DTcomment{Layout der Titelseite}.
 		.2 THBVorlageMain\DTcomment{Hauptdatei}.
@@ -62,7 +61,7 @@ Ein Vorteil bei der Benutzung von \LaTeX\ ist, dass der Code bei langen Projekte
 Die Dateistruktur ist natürlich nicht zwingend und kann gerne nach Eigenbedarf angepasst werden. Diese Struktur ist für lange Dokumente ($>30$ Seiten) wie Bachelor- oder Masterarbeiten geeignet.
 
 \section{Personalisierung der Vorlage}
-Als Erstes sollte die Hauptdatei \directory{THBVorlageMain.tex} für das Projekt umbenannt werden. Danach kann die Datei \directory{texs/Metadaten.tex} angepasst werden, indem die Musterwert durch richtige Daten ersetzt werden. Die Werte werden vor allem für die Titelseite, aber auch für PDF-Metadaten verwendet. Bei Bedarf können natürlich auch weitere Befehle definiert werden.
+Als Erstes sollte die Hauptdatei \directory{THBVorlageMain.tex} für das Projekt umbenannt werden. Danach kann die Datei \directory{texs/Metadaten.tex} angepasst werden, indem die Musterwerte durch richtige Daten ersetzt werden. Die Werte werden vor allem für die Titelseite, aber auch für PDF-Metadaten verwendet. Bei Bedarf können natürlich auch weitere Befehle definiert werden.
 
 \section{Zitation und Literaturverzeichnis}
 Für die Zitation und das Literaturverzeichnis wird das Paket \href{https://ctan.org/pkg/biblatex?lang=de}{\textit{biblatex}} mit dem backend \textit{biber} verwendet.
@@ -97,7 +96,3 @@ Der Standardbefehl für Zitate in \LaTeX\ ist \verb|\cite{bibid}|. Es existieren
 \end{table}
 
 Das Paket \href{https://ctan.org/pkg/biblatex?lang=de}{\textit{biblatex}} stellt weitere Zitierbefehle zur Verfügung, deren Bedeutung in der Dokumentation nachgelesen werden kann.
-
-
-\section{Abkürzungsverzeichnis, Symbolverzeichnis und Glossar}
-Diese Vorlage enthält auch ein Abkürzungs- und Symbolverzeichnis, sowie ein Glossar zur Erklärung von Fachbegriffen. Alle diese Verzeichnisse werden mit dem Paket \href{https://ctan.org/pkg/glossaries?lang=de}{\textit{glossaries}} erstellt. Die Konfiguration der Verzeichnisse und die Definition neuer Einträge ist in der Datei \directory{texs/ExtraVerzeichnisse.tex} anpassbar. In der Hauptdatei werden die Verzeichnisse mit \verb|\printglossary[<Optionen>]| ausgegeben.

@@ -1,4 +1,4 @@
-\chapter{Latex Beispiele}
+\chapter{LaTeX Beispiele}
 \section{Abbildungen}
 Mit der \texttt{figure}-Umgebung kann man eine Abbildung erstellen.
 
@@ -10,12 +10,11 @@ Mit der \texttt{figure}-Umgebung kann man eine Abbildung erstellen.
 \begin{figure}[ht]
 	\centering % Abbildung zentriert
 	\includegraphics[width=0.6\linewidth]{THBLogo.pdf} % Bild laden
-	\Quelle{0.6\linewidth}{\cite{THBWebsite}} % eigener Befehl für Quellen
 	\caption{Das Logo der Technischen Hochschule Brandenburg} % Beschriftung
 	\label{fig:THBLogo} % Label für Verweis mit \ref
 \end{figure}
 
-In Abbildung \ref{fig:THBLogo} ist das Logo der THB zu sehen.
+In \vref{fig:THBLogo} ist das Logo der THB zu sehen.
 
 \section{Eine Tabelle}
 Eine Tabelle wird mit der \texttt{table}-Umgebung erstellt. Diese ist aber nur für Platzierung und Überschrift zuständig. Der Inhalt kann mit der \texttt{tabular}-Umgebung oder noch besser mit der \texttt{tblr}-Umgebung gesetzt werden.
@@ -34,7 +33,7 @@ Eine Tabelle wird mit der \texttt{table}-Umgebung erstellt. Diese ist aber nur f
 	\end{tblr}
 \end{table}
 
-In Tabelle \ref{tab:Beispieltabelle} stehen Zahlen über die THB.
+In \vref{tab:Beispieltabelle} stehen Zahlen über die THB.
 
 \section{Listen}
 Für Aufzählungen etc.
@@ -55,7 +54,7 @@ Für Aufzählungen etc.
 
 \subsection{Liste mit Beschreibung}
 \begin{description}
-	\item[Fachbereich Technik] Ganz was Feines
+	\item[Fachbereich Technik] Die Ingenieure der Zukunft
 	\item[Fachbereich Informatik] Auch ok
-	\item[Fachbereich Wirtschaft] \blindtext
+	\item[Fachbereich Wirtschaft] Naja, wer es mag...
 \end{description}

@@ -64,7 +64,6 @@
 % --------------------------------------
 % Standdard Pakete
 % --------------------------------------
-\usepackage{blindtext} % Blindtext erzeugen
 \usepackage{microtype} % bessere Typographie
 \usepackage{amsmath} % Mathematik
 \usepackage{siunitx} % Einheiten
@@ -75,12 +74,10 @@
 \usepackage{booktabs} % schönere Tabellen
 \usepackage{tabularray} % Tabellen leichter gestalten
 \UseTblrLibrary{booktabs, siunitx}
-\usepackage{subcaption} % Für 1a, 1b, 1c Abbildungen
 
 %-------------------------------------------------
 % Zusätzliche Pakete, gerne erweitern
 %-------------------------------------------------
-\usepackage[colorinlistoftodos]{todonotes} % TODO-Liste
 \usepackage{dirtree} % Visualieren von Ordnerstrukturen
 \usepackage{menukeys}
 
@@ -116,32 +113,7 @@
 %\ihead{\headmark} % innen Kolumentitel
 %\ohead{\smash{\includegraphics[height=10mm]{THBLogo.pdf}}} 
 %\cfoot*{\pagemark} % unten mittig Seitenzahl
-
-% ---------------------------------------
-% Einstellungen für Quellcode Datein
-% ---------------------------------------
-\usepackage{scrhack} % für veraltetes listings package
-\usepackage{listings} % Quellcode einbinden
-\renewcommand\lstlistlistingname{Quellcodeverzeichnis}
-
-%-----------------------------------
-% Umlaute in Code korrekt darstellen
-% siehe auch: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
-%-----------------------------------
-\lstset{literate=
-	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
-	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-	{€}{{\EUR}}1 {£}{{\pounds}}1 {„}{{\glqq{}}}1
-}
+\usepackage{scrhack} % patchen von alten Umgebungen
 
 % ----------------------------------------------------
 % Einstellung für Links, Lesezeichen und PDF-Metadaten
@@ -154,12 +126,7 @@
 \usepackage[
 	colorlinks=true,
 	linkcolor=blue,
-	bookmarks=true,
-	bookmarksnumbered=true,
-	bookmarksopen=true,
-	bookmarksopenlevel=0,
-	pdfstartpage=1,
-%	hidelinks, für print Version aktivieren
+%	hidelinks, % für print Version aktivieren
 ]{hyperref}
 % Metadaten in PDF eintragen
 \hypersetup{
@@ -168,16 +135,13 @@
 		Author={\myAutor},
 	}
 }
+\usepackage{xurl} % Umbrüche in Links
+
 % Ermöglicht "clevere" Referenzen, automatisches Ergänzen des Verweistyps zum Beispiel Abbildung
-\usepackage{cleveref}
+\usepackage[noabbrev]{cleveref}
 
 % ----------------------------------------------------
 % Eigene Einstellungen und Befehle
 % ----------------------------------------------------
 % Hier können weitere Einstellungen vorgenommen werden
 % und neue Befehle/Umgebungen definiert werden
-
-\setcapindent{1em} % Einzug für mehrzeilige Beschriftungen
-\setlength{\marginparwidth}{2cm} % für todo package
-% Befehl für Quellen bei Abbildungen oder Tabellen
-\newcommand{\Quelle}[2]{\parbox{#1}{{\small Quelle: #2}}}

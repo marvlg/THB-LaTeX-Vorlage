@@ -1,39 +1,33 @@
 % Dokument konfigurieren
 \input{texs/config}
-% Symbolverzeichnis, Abkürzungsverzeichnis, Glossar
-\input{texs/ExtraVerzeichnisse}
 
 % Start des Inhalts
 \begin{document}
+
+\pagenumbering{roman} % römische Seitenzahlen
 	
 % Deckblatt
 \input{texs/Titelseite}
-
-\pagenumbering{Roman} % römische Seitenzahlen
 
 % Verzeichnisse, ungewünschte einfach löschen
 \tableofcontents % Inhaltsverzeichnis
 \listoffigures % Abbildungsverzeichnis
 \listoftables % Tabellenverzeichnis
-% Abkürzungsverzeichnis
-\printglossary[type=acronym, title=Abkürzungsverzeichnis, style=super]
-% Symbolverzeichnis
-\printglossary[type=symbols, style=super]
-% Glossar
-\printglossary[type=main]
-\listoftodos[TODO-Liste] % Todo Liste
 
-\newpage
+\clearpage
+%\cleardoublepage % Für zweiseitige Dokumente verwenden
 \pagenumbering{arabic} % arabische Seitenzahlen
+
+% Bei großen Dokumenten besteht auch die Möglichkeit nur einzelne Kapitel zu bearbeiten
+% Dafür \input durch \include ersetzen und mit \includeonly können die aktuellen Kapitel ausgewählt werden
+% Wichtig: Nur bei den Kapiteln und Anhang ändern, auf keinenfall bei config.tex!!!
+% Für Weitere Infos: https://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
 
 % Kapitel
 \input{texs/Kapitel/01-VorlageAllgemeines}
-\input{texs/Kapitel/02-LatexBeispiele}
-\todo{Weitere Kapitel ergänzen}
-
+\input{texs/Kapitel/02-LaTeXBeispiele}
 
 % Literaturverzeichnis
-\nocite{*}
 \printbibliography[title=Literaturverzeichnis]
 
 % Anhänge
